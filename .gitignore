@@ -1,0 +1,16 @@
+# Ignore server .env file
+server/.env
+client/.env
+
+# Ignore node_modules in all folders
+**/node_modules/
+
+# Ignore build output
+client/dist/
+
+# Ignore logs, system, IDE files
+*.log
+.DS_Store
+
+# Just in case
+.env
