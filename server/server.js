@@ -5,7 +5,8 @@ import flash from "connect-flash";
 import cookieParser from "cookie-parser";
 import reqestIp from "request-ip";
 import { authRoute } from "./router/authRoute.js";
-
+import path from "path";
+import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import {
   membershipPlanCheck,
@@ -34,6 +35,13 @@ app.use(
 );
 app.use(flash());
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve static frontend
+const clientDistPath = path.join(__dirname, "../client/dist");
+app.use(express.static(clientDistPath));
+
 app.use(verifyAuthentiocationUser);
 app.use(membershipPlanCheck);
 app.use((req, res, next) => {
@@ -42,6 +50,11 @@ app.use((req, res, next) => {
 });
 
 app.use(reqestIp.mw());
+
+// All remaining routes go to React app
+app.get("*", (req, res) => {
+  res.sendFile(path.join(clientDistPath, "index.html"));
+});
 
 app.use("/", authRoute);
 
