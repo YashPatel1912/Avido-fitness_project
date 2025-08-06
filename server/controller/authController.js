@@ -2,7 +2,6 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_API_KEY);
 
-
 import { generateState, generateCodeVerifier, decodeIdToken } from "arctic";
 
 import { OAUTH_EXCHANGE_EXPIRY } from "../config/constant.js";
@@ -455,8 +454,6 @@ export const postResetPassword = async (req, res) => {
 // todo getGooglePage
 export const getGooglePage = async (req, res) => {
   if (req.user) return res.redirect("/");
-
-  console.log(req.user);
 
   const state = generateState();
   const codeVerifier = generateCodeVerifier();

@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 export const UserContext = createContext();
 
-const stripepromise = loadStripe(import.meta.env.STRIPE_API_KEY);
+const stripepromise = loadStripe(import.meta.env.VITE_STRIPE_API_KEY);
 
 export const UserProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(null);

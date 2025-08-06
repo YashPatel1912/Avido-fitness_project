@@ -27,7 +27,7 @@ export const Login = () => {
   };
 
   const handleGoogleLogin = async () => {
-    window.location.href = "http://localhost:3000/google/";
+    window.location.href = `${import.meta.env.VITE_BACKEND_URL}/google/`;
   };
 
   const handleFormSubmit = async (e) => {
