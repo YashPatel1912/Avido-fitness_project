@@ -33,7 +33,7 @@ export const EditPersonalDetails = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/edit-personal-details/",
+        `${import.meta.env.VITE_BACKEND_URL}/edit-personal-details/`,
         {
           method: "POST",
           credentials: "include",

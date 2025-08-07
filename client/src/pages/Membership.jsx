@@ -12,10 +12,13 @@ export const Membership = () => {
 
   useEffect(() => {
     const subscriptionDetails = async () => {
-      const res = await fetch("http://localhost:3000/subscription-data", {
-        method: "GET",
-        credentials: "include",
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/subscription-data`,
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
 
       const data = await res.json();
       if (res.ok) {

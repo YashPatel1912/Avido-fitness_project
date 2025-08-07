@@ -29,7 +29,7 @@ export const Profile = () => {
 
   useEffect(() => {
     const profileData = async () => {
-      const response = await fetch("http://localhost:3000/profile", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/profile`, {
         credentials: "include",
         method: "GET",
       });

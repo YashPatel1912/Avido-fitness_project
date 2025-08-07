@@ -20,7 +20,7 @@ export const SetPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/set-password/", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/set-password/`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

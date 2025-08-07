@@ -28,7 +28,7 @@ export const Register = () => {
   };
 
   const handleGoogleLogin = async () => {
-    window.location.href = "http://localhost:3000/google/";
+    window.location.href = `${import.meta.env.VITE_BACKEND_URL}/google/`;
   };
 
   const handleSubmit = async (e) => {
@@ -36,7 +36,7 @@ export const Register = () => {
     setMesages({});
 
     try {
-      const response = await fetch("http://localhost:3000/api/register/", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/register/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

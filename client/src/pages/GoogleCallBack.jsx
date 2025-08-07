@@ -16,7 +16,7 @@ export const GoogleCallBack = () => {
 
     if (code && state) {
       const callBack = async () => {
-        const response = await fetch("http://localhost:3000/google/callback/", {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/google/callback/`, {
           method: "POST",
           credentials: "include",
           headers: { "Content-Type": "application/json" },

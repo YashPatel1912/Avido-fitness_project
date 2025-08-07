@@ -40,7 +40,7 @@ export const ChangePassword = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/change-password/", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/change-password/`, {
         method: "POST",
         credentials: "include",
         headers: {

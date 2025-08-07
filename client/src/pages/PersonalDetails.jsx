@@ -33,7 +33,7 @@ export const PersonalDetails = () => {
     setErrors({});
 
     try {
-      const response = await fetch("http://localhost:3000/member-details", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/member-details`, {
         method: "POST",
         credentials: "include",
         headers: {

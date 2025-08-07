@@ -17,10 +17,13 @@ export const Logout = () => {
 
     const logoutUser = async () => {
       try {
-        const response = await fetch("http://localhost:3000/logout/", {
-          method: "POST",
-          credentials: "include",
-        });
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/logout/`,
+          {
+            method: "POST",
+            credentials: "include",
+          }
+        );
 
         const data = await response.json();
 

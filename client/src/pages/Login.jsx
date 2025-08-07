@@ -35,7 +35,7 @@ export const Login = () => {
     setErrors({});
 
     try {
-      const response = await fetch("http://localhost:3000/api/login/", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login/`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

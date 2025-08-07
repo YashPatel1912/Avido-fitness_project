@@ -20,14 +20,17 @@ export const Payment = () => {
 
   const handleFormDetails = async () => {
     try {
-      const response = await fetch("http://localhost:3000/membership-data/", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(selectMembershipData),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/membership-data/`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(selectMembershipData),
+        }
+      );
 
       const data = await response.json();
 
