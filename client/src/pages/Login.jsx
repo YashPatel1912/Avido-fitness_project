@@ -28,8 +28,7 @@ export const Login = () => {
 
   const handleGoogleLogin = async () => {
     window.location.href = `${import.meta.env.VITE_BACKEND_URL}/google/`;
-    console.log(import.meta.env.VITE_BACKEND_URL , "gg");
-    
+    console.log(import.meta.env.VITE_BACKEND_URL, "gg");
   };
 
   const handleFormSubmit = async (e) => {
@@ -37,15 +36,18 @@ export const Login = () => {
     setErrors({});
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/login/`, {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: loginData.email,
-          password: loginData.password,
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/login/`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: loginData.email,
+            password: loginData.password,
+          }),
+        }
+      );
 
       const data = await response.json();
 
