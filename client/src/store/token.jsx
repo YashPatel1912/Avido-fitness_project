@@ -15,7 +15,7 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/check-auth", {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/check-auth`, {
           credentials: "include",
         });
 
