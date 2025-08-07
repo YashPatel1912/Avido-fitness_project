@@ -28,7 +28,6 @@ export const Login = () => {
 
   const handleGoogleLogin = async () => {
     window.location.href = `${import.meta.env.VITE_BACKEND_URL}/google/`;
-    console.log(import.meta.env.VITE_BACKEND_URL, "gg");
   };
 
   const handleFormSubmit = async (e) => {

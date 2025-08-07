@@ -13,4 +13,4 @@ client/dist/
 .DS_Store
 
 # Just in case
-.env
+server/.env

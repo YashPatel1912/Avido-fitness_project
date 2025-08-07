@@ -40,7 +40,7 @@ export const UserProvider = ({ children }) => {
     const stripeKey = await stripepromise;
 
     try {
-      const response = await fetch("http://localhost:3000/check-out", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/check-out`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export const UserProvider = ({ children }) => {
         return;
       }
 
-      const res = await fetch("http://localhost:3000/payment", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/payment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
