@@ -1,3 +1,4 @@
+
 import express from "express";
 import cors from "cors";
 import session from "express-session";
@@ -51,16 +52,16 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Serve static frontend
-const clientDistPath = path.join(__dirname, "../client/dist");
-app.use(express.static(clientDistPath));
+// const clientDistPath = path.join(__dirname, "../client/dist");
+// app.use(express.static(clientDistPath));
 
-// All remaining routes go to React app
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(clientDistPath, "index.html"));
-});
+// // All remaining routes go to React app
+// app.get("/*", (req, res) => {
+//   res.sendFile(path.join(clientDistPath, "index.html"));
+// });
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000 || process.env.PORT;
 app.listen(PORT, () =>
   console.log(`server is running on http://localhost:${PORT}`)
 );
