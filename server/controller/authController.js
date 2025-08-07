@@ -43,7 +43,7 @@ import {
 } from "../validators/authValidation.js";
 import { google } from "../lib/oauth/google.js";
 
-export const getBackendPage = () => {
+export const getBackendPage = (req,res) => {
   res.send("Backend is running ");
 };
 

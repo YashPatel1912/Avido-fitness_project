@@ -12,6 +12,7 @@ import {
   membershipPlanCheck,
   verifyAuthentiocationUser,
 } from "./middleware/authmiddleware.js";
+
 dotenv.config();
 
 const app = express();
@@ -33,14 +34,9 @@ app.use(
     saveUninitialized: false,
   })
 );
+
 app.use(flash());
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Serve static frontend
-const clientDistPath = path.join(__dirname, "../client/dist");
-app.use(express.static(clientDistPath));
+app.use(reqestIp.mw());
 
 app.use(verifyAuthentiocationUser);
 app.use(membershipPlanCheck);
@@ -49,14 +45,20 @@ app.use((req, res, next) => {
   return next();
 });
 
-app.use(reqestIp.mw());
+app.use("/", authRoute);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve static frontend
+const clientDistPath = path.join(__dirname, "../client/dist");
+app.use(express.static(clientDistPath));
 
 // All remaining routes go to React app
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(clientDistPath, "index.html"));
 });
 
-app.use("/", authRoute);
 
 const PORT = process.env.PORT || 3008;
 app.listen(PORT, () =>
