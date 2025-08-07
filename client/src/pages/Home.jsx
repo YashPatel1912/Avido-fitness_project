@@ -8,12 +8,9 @@ import HomeService1 from "../../public/imagess/service1.png";
 import HomeService3 from "../../public/imagess/service3.png";
 import HomeWhyUS1 from "../../public/imagess/us1.png";
 import HomeWhyUS2 from "../../public/imagess/us2.png";
-// import blog1 from "../../public/imagess/blog1.png";
-// import blog2 from "../../public/imagess/blog2.png";
-// import blog3 from "../../public/imagess/blog3.png";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { PriceDataLayout } from "../components/layout/PriceDataLayout";
-import "../app.css"
+import "../App.css";
 
 export const Home = () => {
   const navigate = useNavigate();

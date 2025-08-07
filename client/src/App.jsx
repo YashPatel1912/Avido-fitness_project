@@ -26,7 +26,7 @@ import { GoogleCallBack } from "./pages/GoogleCallBack";
 import { SetPassword } from "./pages/SetPassword";
 import { Success } from "./pages/Success";
 
-
+import "./App.css";
 
 const Layout = () => {
   const location = useLocation();
@@ -83,7 +83,6 @@ const Layout = () => {
         <Route path="/google/callback" element={<GoogleCallBack />} />
       </Routes>
       {!shouldHide && <Footer />}
-      
     </>
   );
 };
